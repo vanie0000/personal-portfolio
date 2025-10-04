@@ -14,7 +14,7 @@ const cn = (...inputs: (string | boolean | null | undefined)[]): string => {
 
 interface BaseLogoProps {
   className?: string;
-  uniColor?: boolean; 
+  uniColor?: boolean;
 }
 
 interface LogoStrokeProps {
@@ -42,7 +42,7 @@ export const Logo: React.FC<BaseLogoProps> = ({ className, uniColor }) => {
           id="portfolio-logo-gradient"
           x1="0"
           y1="10"
-          x2="180" 
+          x2="180"
           y2="10"
           gradientUnits="userSpaceOnUse"
         >
@@ -112,7 +112,7 @@ export const LogoStroke: React.FC<LogoStrokeProps> = ({ className }) => {
         "size-7 w-7 text-gray-900 dark:text-gray-50 transition duration-300",
         className
       )}
-      viewBox="0 0 24 24" 
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
