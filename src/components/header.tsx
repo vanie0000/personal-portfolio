@@ -2,87 +2,139 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import React from 'react'
 import { useScroll, motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 const menuItems = [
-    { name: 'About', href: '#link' },
-    { name: 'Projects', href: '#link' },
-    { name: 'Contact', href: '#link' },
-]
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
 
 export const HeroHeader = () => {
-    const [menuState, setMenuState] = React.useState(false)
-    const [scrolled, setScrolled] = React.useState(false)
-    const { scrollYProgress } = useScroll()
+  const [menuState, setMenuState] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+  const { scrollYProgress } = useScroll();
 
-    React.useEffect(() => {
-        const unsubscribe = scrollYProgress.on('change', (latest) => {
-            setScrolled(latest > 0.05)
-        })
-        return () => unsubscribe()
-    }, [scrollYProgress])
+  React.useEffect(() => {
+    const unsubscribe = scrollYProgress.on("change", (latest: number) => {
+      setScrolled(latest > 0.05);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
-    return (
-        <header>
-            <nav
-                data-state={menuState && 'active'}
-                className="fixed z-20 w-full pt-2">
-                <div className={cn('mx-auto max-w-7xl rounded-3xl px-6 transition-all duration-300 lg:px-12', scrolled && 'bg-background/50 backdrop-blur-2xl')}>
-                    <motion.div
-                        key={1}
-                        className={cn('relative flex flex-wrap items-center justify-between gap-6 py-3 duration-200 lg:gap-0 lg:py-6', scrolled && 'lg:py-4')}>
-                        <div className="flex w-full items-center justify-between gap-12 lg:w-auto">
-                            <Link
-                                href="/"
-                                aria-label="home"
-                                className="flex items-center space-x-2">
-                                <Logo />
-                            </Link>
+  const tailwindClasses = {
+    background: "bg-white dark:bg-gray-900",
+    mutedForeground: "text-gray-500 dark:text-gray-400",
+    accentForeground: "text-gray-900 dark:text-gray-100",
+  };
 
-                            <button
-                                onClick={() => setMenuState(!menuState)}
-                                aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
-                                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden">
-                                <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
-                                <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
-                            </button>
+  return (
+    <header className="h-20">
+      <nav
+        data-state={menuState ? "active" : "inactive"}
+        className="fixed z-20 w-full pt-2"
+      >
+        <div
+          className={cn(
+            "mx-auto max-w-7xl rounded-3xl px-6 transition-all duration-300 lg:px-12",
+            scrolled && "bg-white/50 dark:bg-gray-900/50 backdrop-blur-2xl"
+          )}
+        >
+          <motion.div
+            key={1}
+            // The main container uses justify-between to push the children to the far left and far right
+            className={cn(
+              "relative flex flex-wrap items-center justify-between gap-6 py-3 duration-200 lg:gap-0 lg:py-6",
+              scrolled && "lg:py-4"
+            )}
+          >
+            {/* 1. LEFT SIDE: Logo & Mobile Toggle Button */}
+            {/* This div only needs to ensure the logo is on the left and the button is visible on mobile */}
+            <div className="flex w-full items-center justify-between lg:w-auto">
+              <Link
+                href="/"
+                aria-label="home"
+                className="flex items-center space-x-2"
+              >
+                <Logo />
+              </Link>
 
-                            <div className="hidden lg:block">
-                                <ul className="flex gap-8 text-sm">
-                                    {menuItems.map((item, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
-                                                <span>{item.name}</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMenuState(!menuState)}
+                aria-label={menuState == true ? "Close Menu" : "Open Menu"}
+                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+              >
+                {/* Using conditional class toggling instead of custom data attributes for broader compatibility */}
+                <Menu
+                  className={cn(
+                    "m-auto size-6 duration-200 transition-transform",
+                    menuState
+                      ? "rotate-180 scale-0 opacity-0"
+                      : "rotate-0 scale-100 opacity-100"
+                  )}
+                />
+                <X
+                  className={cn(
+                    "absolute inset-0 m-auto size-6 duration-200 transition-transform",
+                    menuState
+                      ? "rotate-0 scale-100 opacity-100"
+                      : "-rotate-180 scale-0 opacity-0"
+                  )}
+                />
+              </button>
+            </div>
 
-                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
-                            <div className="lg:hidden">
-                                <ul className="space-y-6 text-base">
-                                    {menuItems.map((item, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
-                                                <span>{item.name}</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </nav>
-        </header>
-    )
-}
+            {/* 2. RIGHT SIDE: Desktop Navigation Links (Hidden on Mobile) */}
+            <div className="hidden lg:block">
+              <ul className="flex gap-8 text-sm">
+                {menuItems.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        tailwindClasses.mutedForeground,
+                        "hover:text-cyan-500 block duration-150"
+                      )}
+                    >
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 3. Mobile Menu Overlay Content (Shown only when menuState is active on mobile) */}
+            <div
+              className={cn(
+                tailwindClasses.background,
+                "mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:hidden lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent",
+                // Display block on mobile when active, hidden otherwise
+                menuState ? "block" : "hidden"
+              )}
+            >
+              {/* This is the mobile list of links */}
+              <ul className="space-y-6 text-base">
+                {menuItems.map((item, index) => (
+                  <li key={index} onClick={() => setMenuState(false)}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        tailwindClasses.mutedForeground,
+                        "hover:text-cyan-500 block duration-150"
+                      )}
+                    >
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      </nav>
+    </header>
+  );
+};
