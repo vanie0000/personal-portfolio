@@ -39,6 +39,8 @@ export default function HeroSection() {
               <div className="aspect-2/3 absolute inset-1 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
                 <video
                   autoPlay
+                  muted
+                  playsInline
                   loop
                   className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
                   src="https://www.pexels.com/download/video/5473797/"
