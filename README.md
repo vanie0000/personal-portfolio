@@ -22,7 +22,6 @@ A modern, fully responsive **portfolio website** built with **Next.js**, **TypeS
 | Language | [TypeScript](https://www.typescriptlang.org/) |
 | Styling | [Tailwind CSS](https://tailwindcss.com/) |
 | UI Components | [Shadcn UI](https://ui.shadcn.com/) |
-| Deployment | [Vercel](https://vercel.com/) |
 
 ---
 
