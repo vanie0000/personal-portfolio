@@ -35,7 +35,7 @@ export default function Projects() {
         "Google Gemini SDK",
       ],
       github: "https://github.com/vanie0000/spotify-roaster",
-      demo: "#",
+      demo: "https://drive.google.com/file/d/1Mp6hTNeX6cPGLMtbBxhmqpNcgLT5sjHv/view?usp=sharing",
     },
   ];
 
