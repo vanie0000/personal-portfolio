@@ -16,7 +16,7 @@ export default function ContentSection() {
               </p>
               <p>
                 when i am not writing code, you can usually find me listening to
-                music or watching tv shows- guess who's a breaking bad fanatic.
+                music or watching tv shows- guess who is a breaking bad fanatic.
               </p>
               <p>
                 i am always open to discussing new opportunities or
