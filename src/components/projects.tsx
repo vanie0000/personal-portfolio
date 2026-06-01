@@ -14,12 +14,27 @@ import Image from "next/image";
 export default function Projects() {
   const projects = [
     {
-      title: "personal portfolio",
+      title: "personal portfolio and engineering showcase",
       description:
         "my personal portfolio website built using next.js, typeScript, and tailwind css. showcasing my projects, skills, and contact info.",
       image: "/images/image.png",
       tech: ["Next.js", "TypeScript", "TailwindCSS"],
       github: "https://github.com/vanie0000/personal-portfolio",
+      demo: "#",
+    },
+    {
+      title: "roast your music taste: spotify",
+      description:
+        "a full-stack MERN application that authenticates with spotify, analyzes your listening history, and uses Google Gemini AI to generate a brutal, sarcastic roast of your music taste. the entire UI is styled with the brat aesthetic (neon green, stark black, brutalist typography, so charli xcx).",
+      image: "/images/roast.png",
+      tech: [
+        "MongoDB",
+        "Node.js",
+        "Express.js",
+        "React.js",
+        "Google Gemini SDK",
+      ],
+      github: "https://github.com/vanie0000/spotify-roaster",
       demo: "#",
     },
   ];

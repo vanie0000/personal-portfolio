@@ -9,12 +9,20 @@ export default function ContentSection() {
             </h2>
             <div className="space-y-6">
               <p>
-                my core work is built upon the T3 stack principles, that leverages
-                next.js and typescript for end-to-end type safety, complemented
-                by tailwind css for rapid, responsive ui development.
+                tech-agnostic developer with a love for exploring different
+                stacks. i specialize in picking up new frameworks quickly and
+                choosing the right tools to build clean, efficient, and scalable
+                web applications.
               </p>
-              <p>when i'm not writing code, you can usually find me listening to music or watching tv shows (guess who's a breaking bad fanatic).</p>
-              <p>i'm always open to discussing new opportunities or collaborations. feel free to explore my projects, or get in touch with me!</p>
+              <p>
+                when i'm not writing code, you can usually find me listening to
+                music or watching tv shows (guess who's a breaking bad fanatic).
+              </p>
+              <p>
+                i'm always open to discussing new opportunities or
+                collaborations. feel free to explore my projects, or get in
+                touch with me!
+              </p>
             </div>
           </div>
         </div>
