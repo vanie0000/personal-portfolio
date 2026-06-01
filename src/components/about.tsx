@@ -15,11 +15,11 @@ export default function ContentSection() {
                 web applications.
               </p>
               <p>
-                when i'm not writing code, you can usually find me listening to
-                music or watching tv shows (guess who's a breaking bad fanatic).
+                when i am not writing code, you can usually find me listening to
+                music or watching tv shows- guess who's a breaking bad fanatic.
               </p>
               <p>
-                i'm always open to discussing new opportunities or
+                i am always open to discussing new opportunities or
                 collaborations. feel free to explore my projects, or get in
                 touch with me!
               </p>
